@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -17,7 +18,7 @@ public class MainPage extends BasePage {
 
     public String getUrl() throws IOException {
         Properties prop = new Properties();
-        FileInputStream file = new FileInputStream("src/main/resources/config.properties");
+        FileInputStream file = new FileInputStream("src/test/java/resources/config.properties");
         prop.load(file);
         return prop.getProperty("mainUrl");
     }
@@ -40,5 +41,17 @@ public class MainPage extends BasePage {
         if (searchBtn.isDisplayed()) {
             searchBtn.click();
         }
+    }
+
+    public String getProductCode (){
+       return productBlock.findElement(By.xpath(".//span[@class=\"product-thumb__id\"]")).getText();
+    }
+
+    public String getProductAvailability (){
+        return productBlock.findElement(By.xpath(".//span[@class=\"product-thumb__availability product-thumb__availability--available\"]")).getText();
+    }
+
+    public String getProductPrise (){
+        return productBlock.findElement(By.xpath("//div[@class=\"product-thumb__inner\"]//span[@class=\"product-thumb__price\"]")).getText();
     }
 }

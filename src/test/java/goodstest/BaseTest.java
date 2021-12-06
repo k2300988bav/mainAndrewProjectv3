@@ -24,6 +24,8 @@ public class BaseTest {
 //                .port(Integer.parseInt("8088")).usingFilesUnderDirectory("src/main/resources/mockData"));
 //                .fileSource(filesRoot));
 //        wireMockServer.start();
+//        $ java -jar wiremock-jre8-standalone-2.31.0.jar
+
     }
 
     @AfterTest
